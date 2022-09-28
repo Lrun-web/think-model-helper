@@ -492,7 +492,7 @@ class Command extends \think\console\Command
         $paramsWithDefault = [];
         /** @var \ReflectionParameter $param */
         foreach ($method->getParameters() as $param) {
-            $paramClass = $param->getClass();
+            $paramClass = $param->getType();
             $paramStr   = (!is_null($paramClass) ? '\\' . $paramClass->getName() . ' ' : '') . '$' . $param->getName();
             $params[]   = $paramStr;
             if ($param->isOptional() && $param->isDefaultValueAvailable()) {
